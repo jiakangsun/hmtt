@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-nav-bar title="登录">
+    <van-nav-bar title="登录" @click-left="$router.go(-1)">
       <!-- <van-icon name="cross" slot="left" /> -->
 
       <!-- 标准写法 插槽 -->
@@ -31,7 +31,8 @@
           { pattern: /^\d{6}$/, message: '验证码长度必须是6位' },
         ]"
       >
-        <i class="toutiao toutiao-yanzhengma" slot="left-icon"></i>
+        <!-- <i class="toutiao toutiao-yanzhengma" slot="left-icon"></i> -->
+        <MyIcon name="yanzhengma" slot="left-icon"></MyIcon>
         <template #button>
           <van-count-down
             v-if="isCountDownShow"
@@ -64,7 +65,7 @@ export default {
   created () { },
   data () {
     return {
-      mobile: '13911111111', // 手机号
+      mobile: '13767826745', // 手机号
       code: '246810', // 短信验证码
       time: 5 * 1000,
       isCountDownShow: false // 默认不显示倒计时效果
@@ -77,6 +78,7 @@ export default {
         console.log(res)
         // res.data.data (token,refresh_token)
         this.$store.commit('setUser', res.data.data)
+        this.$router.push({ name: 'my' })
       } catch (err) {
         console.log(err)
       }
