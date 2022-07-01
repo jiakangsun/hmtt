@@ -1,8 +1,11 @@
 <template>
   <div>
-    <router-view class="main" />
+    <!-- 切换页面  重新跳回之前点击的模块  -->
+    <keep-alive :include="['Home']">
+      <router-view class="main" />
+    </keep-alive>
 
-    <van-tabbar route >
+    <van-tabbar route>
       <van-tabbar-item replace to="/home" icon="home-o">
         首页
         <!-- <template #icon>
@@ -50,6 +53,6 @@ export default {
 }
 .main {
   padding-bottom: 100px;
-  background-color: #F5F7F9;
+  background-color: #f5f7f9;
 }
 </style>
