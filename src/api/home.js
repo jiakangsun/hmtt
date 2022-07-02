@@ -37,7 +37,7 @@ export const getAllArticleList = () => {
 export const saveChannels = (channels) => {
   return request({
     url: 'user/channels',
-    methodL: 'PUT',
+    method: 'PUT',
     data: {
       channels
     }
