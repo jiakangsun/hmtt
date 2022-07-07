@@ -7,6 +7,7 @@ const Question = () => import('@/views/Question')
 const My = () => import('@/views/My')
 const Login = () => import('@/views/Login')
 const Search = () => import('@/views/Search')
+const Article = () => import('@/views/Article')
 Vue.use(VueRouter)
 
 const routes = [
@@ -22,7 +23,10 @@ const routes = [
     ]
   },
   { path: '/login', component: Login },
-  { path: '/search', component: Search }
+  { path: '/search', component: Search },
+  //         params 相关的路由加props：true  可以让路由和组件解耦
+  { path: '/article/:article_id', component: Article, name: 'article', props: true }
+
 ]
 
 const router = new VueRouter({

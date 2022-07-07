@@ -50,7 +50,7 @@ export default {
     // 给有滚动条的pull-refresh绑定滚动事件
     ele = this.$refs.pullrefresh.$el
     this.$refs.pullrefresh.$el.addEventListener('scroll', function () {
-      console.log(this.scrollTop)
+      // console.log(this.scrollTop)
       scrollTop = this.scrollTop
     })
   },
